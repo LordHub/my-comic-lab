@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Stack, Link } from "@chakra-ui/react";
+import { Button, Center, Flex, Stack, Link } from "@chakra-ui/react";
 import { IoMdArrowRoundUp } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
@@ -13,7 +13,7 @@ export default function Footer() {
             Volver a arriba
           </Button>
         </Link>
-        <Flex marginLeft={10}>
+        <Flex gap={4} marginLeft={10}>
           <Link href="https://www.instagram.com/mycomiclab/" isExternal>
             <FaInstagram color="white" size={30} />
           </Link>

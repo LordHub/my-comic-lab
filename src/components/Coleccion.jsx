@@ -14,7 +14,7 @@ import {
 export default function Coleccion() {
   return (
     <Box padding={"20px"}>
-      <Heading align="center" fontFamily={"Luckiest Guy"}>
+      <Heading align="center" color={"#362C64"} fontFamily={"Luckiest Guy"}>
         Mi colección
       </Heading>
       <SimpleGrid

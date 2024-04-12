@@ -16,10 +16,10 @@ export default function Navbar() {
       </Box>
       <Spacer />
       <ButtonGroup fontFamily={"Outfit"} gap="4">
-        <Link>Sobre MyComicLab</Link>
-        <Link>Venta</Link>
-        <Link>Colección</Link>
-        <Link>Contacto</Link>
+        <Link className="navbarlink">Sobre MyComicLab</Link>
+        <Link className="navbarlink">Venta</Link>
+        <Link className="navbarlink">Colección</Link>
+        <Link className="navbarlink">Contacto</Link>
       </ButtonGroup>
     </Flex>
   );

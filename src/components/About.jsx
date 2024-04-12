@@ -1,44 +1,75 @@
 import {
   Flex,
-  Spacer,
-  Link,
-  Box,
   Image,
-  ButtonGroup,
+  Grid,
   Text,
   Heading,
+  GridItem,
+  Center,
+  Button,
+  AbsoluteCenter,
 } from "@chakra-ui/react";
-import { px } from "framer-motion";
 
 export default function About() {
   return (
-    <Flex padding={"20px"} backgroundColor={"#D0BEFF"} gap={10}>
-      <Box>
-        <Heading color={"#362C64"} fontFamily={"Luckiest Guy"}>
-          Sobre MyComicLab
+    <Grid
+      templateColumns="repeat(2, 1fr)"
+      padding={"10px"}
+      backgroundColor={"#D0BEFF"}
+      gap={10}
+    >
+      <GridItem padding={"40px"}>
+        <Heading padding={"20px"} color={"#362C64"} fontFamily={"Luckiest Guy"}>
+          DETRÁS DE MY COMIC LAB
         </Heading>
-        <Text marginTop={"10px"} fontFamily={"Outfit"}>
-          My Comic Lab es un canal en el que encontraras todo lo relacionado con
-          el coleccionismo de comics americanos. Aquí descubrirás todo lo que he
-          ido aprendiendo a largo de mis años como coleccionista de comics, así
-          como podrás ver lo que he ido coleccionando y responderé a vuestras
-          preguntas. Únete para descubrirlo todo sobre el coleccionismo de
-          comics USA DC, Marvel, Vertigo ..., disfrutar con mis comic hauls
-          también soy amante de los encapsulados CGC,CBCS o PGX y de los trucos
-          necesarios para conseguir comics al mejor precio en tus tiendas
-          favoritas
+        <Text
+          padding={"20px"}
+          fontSize={"25px"}
+          fontWeight={"bold"}
+          fontFamily={"Outfit"}
+          color={"#362C64"}
+        >
+          "Quería crear un espacio en español, dedicado al coleccionismo de
+          cómics americanos porque no existía"
         </Text>
-      </Box>
-      <Flex marginTop={"20px"} marginBottom={"20px"}>
+        <Text
+          w="700px"
+          padding={"20px"}
+          fontFamily={"Outfit"}
+          textAlign={"left"}
+        >
+          Podría decirse que los inicios de MyComicLab se remontan a mi niñez
+          cuando ya disfrutaba leyendo cómics. Sin embargo, diría que la
+          verdadera semilla que engendró todo este camino del coleccionismo, fue
+          durante mi adolescencia, en un viaje a Inglaterra cuando compré los
+          primeros cómics que inaugararían mi colección.
+        </Text>
+        <Text
+          w="700px"
+          padding={"20px"}
+          fontFamily={"Outfit"}
+          textAlign={"left"}
+        >
+          Como tantos otros, durante la pandemia me decidí a crear este
+          proyecto, siendo así, en 2020 como nacía mi canal de YouTube.
+          MyComicLab es, en definitiva, un espacio donde compartir todo lo que
+          he aprendido relacionado con el coleccionismo de comics americanos y
+          disfrutarlo junto a todo aquel que me quiera acompañar. Únete para
+          descubrir todo sobre el coleccionismo de cómics USA DC, Marvel,
+          Vertigo... ¡Y mucho más!
+        </Text>
+        <Flex justifyContent={"right"}>
+          <Button>Únete</Button>
+        </Flex>
+      </GridItem>
+      <GridItem padding={"40px"} align={"right"}>
         <Image
-          w="2000px"
-          h="500px"
-          borderRadius={"10px"}
-          marginRight={"60px"}
-          src="https://yt3.ggpht.com/NEykfArplgrnndtwcPT6LBKlNtYvKT7ebDuoNOJUbUiWVCKC6GykIbChYGzEGtZOYlZHSpFZnYMB4w=s1024-rw-nd-v1"
+          align={"right"}
+          h="480px"
+          src="src\assets\aboutpic.jpg"
           alt="aboutmepic"
         />
-      </Flex>
-    </Flex>
+      </GridItem>
+    </Grid>
   );
 }
