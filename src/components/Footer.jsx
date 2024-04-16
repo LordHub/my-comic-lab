@@ -5,7 +5,7 @@ import { FaYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <Center minHeight={200} bg="#362c64" height={100}>
+    <Center minHeight={[150, 150, 200]} bg="#362c64">
       <Stack spacing={2} direction="column">
         <Link href="#">
           <Button>
@@ -13,7 +13,7 @@ export default function Footer() {
             Volver a arriba
           </Button>
         </Link>
-        <Flex gap={4} marginLeft={10}>
+        <Flex justifyContent={"center"} gap={4}>
           <Link href="https://www.instagram.com/mycomiclab/" isExternal>
             <FaInstagram color="white" size={30} />
           </Link>

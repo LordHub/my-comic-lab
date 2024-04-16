@@ -12,7 +12,18 @@ export default function Venta() {
         Venta
       </Heading>
 
-      <SimpleGrid padding={"60px"} columns={5} spacingX="40px" spacingY="20px">
+      <SimpleGrid
+        justifyContent={"center"}
+        gridTemplateColumns={[
+          "1fr",
+          "repeat(2, 1fr)",
+          "repeat(3, 1fr)",
+          "repeat(5, 1fr)",
+        ]}
+        padding={"60px"}
+        spacingX="40px"
+        spacingY="20px"
+      >
         <CardVenta
           imagen="src\assets\venta1.jpg"
           name="Uncanny X-Men 110 Marvel 1978 15€"
