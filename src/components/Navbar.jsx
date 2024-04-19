@@ -1,6 +1,7 @@
-import { Flex, Spacer, Link, Box, Image, IconButton } from "@chakra-ui/react";
+import { Flex, Spacer, Box, Image, IconButton, Button } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [display, setDisplay] = useState("none");
@@ -15,7 +16,9 @@ export default function Navbar() {
       height={100}
     >
       <Box boxSize="100px" p="2">
-        <Image src="src\assets\mycomiclablogo.png" alt="logo" />
+        <Link to={"/"}>
+          <Image src="src\assets\mycomiclablogo.png" alt="logo" />
+        </Link>
       </Box>
       <Spacer />
       {/* Desktop */}
@@ -25,10 +28,10 @@ export default function Navbar() {
         fontFamily={"Outfit"}
         gap="4"
       >
-        <Link className="navbarlink">Sobre MyComicLab</Link>
-        <Link className="navbarlink">Venta</Link>
-        <Link className="navbarlink">Colección</Link>
-        <Link className="navbarlink">Contacto</Link>
+        <Box className="navbarlink">Sobre MyComicLab</Box>
+        <Box className="navbarlink">Venta</Box>
+        <Box className="navbarlink">Colección</Box>
+        <Box className="navbarlink">Contacto</Box>
       </Flex>
 
       {/* Mobile button */}
@@ -67,10 +70,10 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flexDir="column" align="center">
-          <Link className="navbarlink">Sobre MyComicLab</Link>
-          <Link className="navbarlink">Venta</Link>
-          <Link className="navbarlink">Colección</Link>
-          <Link className="navbarlink">Contacto</Link>
+          <Box className="navbarlink">Sobre MyComicLab</Box>
+          <Box className="navbarlink">Venta</Box>
+          <Box className="navbarlink">Colección</Box>
+          <Box className="navbarlink">Contacto</Box>
         </Flex>
       </Flex>
     </Flex>
