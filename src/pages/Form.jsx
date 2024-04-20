@@ -9,28 +9,36 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import ComicsService from "../services/ComicsService";
 export default function Form() {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [condition, setCondition] = useState("");
-  const [type, setType] = useState("");
-  const saveComic = () => {
-    let comic = {
+  const [publisher, setPublisher] = useState("");
+  const saveComic = async () => {
+    let comicData = {
       title: title,
       url: url,
       condition: condition,
     };
+    const success = await ComicsService.createComic(publisher, comicData);
+    if (success) {
+      alert('Comic added successfully!');
+  
+    } else {
+      alert('Failed to add comic. Please try again.');
+    }
   };
 
   return (
     <Box padding={40}>
       <FormControl>
-        <FormLabel>Type</FormLabel>
-        <RadioGroup onChange={(e) => setType(e.target.value)}>
+        <FormLabel>Publisher</FormLabel>
+        <RadioGroup onChange={setPublisher}>
           <HStack spacing="24px">
-            <Radio value="DC">DC</Radio>
-            <Radio value="Marvel">Marvel</Radio>
-            <Radio value="Other">Other</Radio>
+            <Radio value="dc">DC</Radio>
+            <Radio value="marvel">Marvel</Radio>
+            <Radio value="other">Other</Radio>
           </HStack>
         </RadioGroup>
       </FormControl>
