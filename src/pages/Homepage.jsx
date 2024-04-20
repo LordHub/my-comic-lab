@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import YTVideos from "../components/YTVideos";
@@ -8,13 +7,11 @@ import Venta from "../components/Venta";
 export default function Homepage() {
   return (
     <>
-      <Navbar />
       <About />
       <Coleccion />
       <Venta />
       <YTVideos />
       <Contact />
-      <Footer />
     </>
   );
 }

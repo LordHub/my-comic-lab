@@ -11,7 +11,6 @@ import {
   InputLeftElement,
   Textarea,
   HStack,
-  Box,
 } from "@chakra-ui/react";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
@@ -37,28 +36,25 @@ export default function Contact() {
       </Stack>
 
       <HStack spacing="24px">
-        <Box width={"50%"}>
-          <FormControl>
-            <FormLabel>Nombre</FormLabel>
-            <InputGroup borderColor="#E0E1E7">
-              <InputLeftElement>
-                <BsPerson color="gray.800" />
-              </InputLeftElement>
-              <Input type="text" size="md" />
-            </InputGroup>
-          </FormControl>
-        </Box>
-        <Box width={"50%"}>
-          <FormControl>
-            <FormLabel>Email</FormLabel>
-            <InputGroup borderColor="#E0E1E7">
-              <InputLeftElement>
-                <MdOutlineEmail color="gray.800" />
-              </InputLeftElement>
-              <Input type="text" size="md" />
-            </InputGroup>
-          </FormControl>
-        </Box>
+        <FormControl>
+          <FormLabel>Nombre</FormLabel>
+          <InputGroup borderColor="#E0E1E7">
+            <InputLeftElement>
+              <BsPerson color="gray.800" />
+            </InputLeftElement>
+            <Input type="text" size="md" />
+          </InputGroup>
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>Email</FormLabel>
+          <InputGroup borderColor="#E0E1E7">
+            <InputLeftElement>
+              <MdOutlineEmail color="gray.800" />
+            </InputLeftElement>
+            <Input type="text" size="md" />
+          </InputGroup>
+        </FormControl>
       </HStack>
       <FormControl>
         <FormLabel>Mensaje</FormLabel>

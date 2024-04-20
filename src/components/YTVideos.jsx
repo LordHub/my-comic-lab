@@ -18,7 +18,7 @@ export default function YTVideos() {
       >
         Últimos videos
       </Heading>
-      <Grid gap={8} gridTemplateColumns={"1fr 1fr 1fr"}>
+      <Grid gap={8} gridTemplateColumns={["1fr", "1fr", "repeat(3, 1fr)"]}>
         <AspectRatio maxW="400" ratio={16 / 9}>
           <iframe
             title="video1"

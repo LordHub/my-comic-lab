@@ -1,16 +1,5 @@
 import CardPic from "./section/CardPic";
-import {
-  SimpleGrid,
-  Card,
-  CardHeader,
-  Heading,
-  CardBody,
-  CardFooter,
-  Button,
-  Text,
-  Box,
-  Image,
-} from "@chakra-ui/react";
+import { SimpleGrid, Heading, Box } from "@chakra-ui/react";
 export default function Coleccion() {
   return (
     <Box padding={"20px"}>
@@ -20,7 +9,7 @@ export default function Coleccion() {
       <SimpleGrid
         fontFamily={"Outfit"}
         spacing={4}
-        templateColumns="repeat(3, 1fr)"
+        gridTemplateColumns={["repeat(3, 1fr)"]}
         marginTop={"20px"}
       >
         <CardPic
