@@ -13,6 +13,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Form from "./pages/Form";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/form" element={<Form />} />
         </Routes>
         <Footer />
       </BrowserRouter>

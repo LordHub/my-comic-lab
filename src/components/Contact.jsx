@@ -11,7 +11,6 @@ import {
   InputLeftElement,
   Textarea,
   HStack,
-  Box,
 } from "@chakra-ui/react";
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
