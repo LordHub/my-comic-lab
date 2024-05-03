@@ -27,6 +27,7 @@ export default function Navbar() {
         display={["none", "none", "flex", "flex"]}
         fontFamily={"Outfit"}
         gap="4"
+        cursor="pointer"
       >
         <Box className="navbarlink">Sobre MyComicLab</Box>
         <Box className="navbarlink">Venta</Box>

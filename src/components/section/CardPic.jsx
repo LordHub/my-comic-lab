@@ -7,8 +7,9 @@ import {
   Button,
   Text,
   Image,
+  Link,
 } from "@chakra-ui/react";
-export default function CardPic({ title, imagen, texto }) {
+export default function CardPic({ title, imagen, texto, publisher }) {
   return (
     <Card align="center">
       <CardHeader>
@@ -21,7 +22,9 @@ export default function CardPic({ title, imagen, texto }) {
         <Text>{texto}</Text>
       </CardBody>
       <CardFooter>
-        <Button>Ver más</Button>
+        <Link href={"/coleccion?publisher=" + publisher}>
+          <Button>Ver más</Button>
+        </Link>
       </CardFooter>
     </Card>
   );
