@@ -14,11 +14,16 @@
     transition: .5s ease;
     opacity: 0;
     position: absolute;
-    top: 50%;
+    top: 40%;
     color: black;
     text-align: center;
     font-family: "outfit";
     
+  }
+  .container:hover{
+    transition: .5s ease;
+    transform: scale(1.1);
+    background-color: #D6C8FE;
   }
   .container:hover .image {
     opacity: 0.3;

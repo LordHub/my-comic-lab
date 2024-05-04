@@ -7,49 +7,111 @@ import {
   HStack,
   Radio,
   Button,
+  Alert,
+  CloseButton,
+  AlertIcon,
+  Text,
+  Flex,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import ComicsService from "../services/ComicsService";
 export default function Form() {
   const [title, setTitle] = useState("");
+  const [year, setYear] = useState("");
   const [url, setUrl] = useState("");
   const [condition, setCondition] = useState("");
-  const [type, setType] = useState("");
-  const saveComic = () => {
-    let comic = {
+  const [publisher, setPublisher] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const saveComic = async () => {
+    let comicData = {
       title: title,
+      year: year,
       url: url,
       condition: condition,
     };
+    setTitle("");
+    setYear("");
+    setUrl("");
+    setCondition("");
+    setPublisher("");
+    const success = await ComicsService.createComic(publisher, comicData);
+    if (success) {
+      setShowSuccess(true);
+    } else {
+      alert("Failed to add comic. Please try again.");
+    }
   };
 
   return (
-    <Box padding={40}>
-      <FormControl>
-        <FormLabel>Type</FormLabel>
-        <RadioGroup onChange={(e) => setType(e.target.value)}>
-          <HStack spacing="24px">
-            <Radio value="DC">DC</Radio>
-            <Radio value="Marvel">Marvel</Radio>
-            <Radio value="Other">Other</Radio>
+    <Box padding={10} marginLeft={"300px"} marginRight={"300px"}>
+      {showSuccess && (
+        <Alert status="success" justifyContent={"space-between"}>
+          <HStack>
+            <AlertIcon />
+
+            <Text>¡Cómic añadido correctamente!</Text>
           </HStack>
-        </RadioGroup>
-      </FormControl>
-      <FormControl>
-        <FormLabel>Title</FormLabel>
-        <Input onChange={(e) => setTitle(e.target.value)} value={title} />
-      </FormControl>
-      <FormControl>
-        <FormLabel>Img url</FormLabel>
-        <Input onChange={(e) => setUrl(e.target.value)} value={url} />
-      </FormControl>
-      <FormControl>
-        <FormLabel>Condition</FormLabel>
-        <Input
-          onChange={(e) => setCondition(e.target.value)}
-          value={condition}
-        />
-      </FormControl>
-      <Button onClick={saveComic}>Submit</Button>
+          <CloseButton
+            alignSelf="flex-end"
+            position="relative"
+            onClick={() => setShowSuccess(false)}
+          />
+        </Alert>
+      )}
+      <Box>
+        <FormControl padding={2}>
+          <FormLabel>Publisher</FormLabel>
+          <RadioGroup onChange={setPublisher} value={publisher}>
+            <HStack spacing="24px">
+              <Radio value="dc">DC</Radio>
+              <Radio value="marvel">Marvel</Radio>
+              <Radio value="other">Other</Radio>
+            </HStack>
+          </RadioGroup>
+        </FormControl>
+        <FormControl padding={2}>
+          <FormLabel>Title</FormLabel>
+          <Input onChange={(e) => setTitle(e.target.value)} value={title} />
+        </FormControl>
+        <FormControl padding={2}>
+          <FormLabel>Year</FormLabel>
+          <Input onChange={(e) => setYear(e.target.value)} value={year} />
+        </FormControl>
+        <FormControl padding={2}>
+          <FormLabel>Img url</FormLabel>
+          <Input onChange={(e) => setUrl(e.target.value)} value={url} />
+        </FormControl>
+        <FormControl padding={2}>
+          <FormLabel>Condition</FormLabel>
+          <Input
+            onChange={(e) => setCondition(e.target.value)}
+            value={condition}
+          />
+        </FormControl>
+        <Flex justifyContent={"center"}>
+          <Button
+            _hover={{
+              background: "#1b1530",
+            }}
+            id="submitbtn"
+            background={"#362c64"}
+            color={"white"}
+            // isDisabled={!title || !year || !condition || !publisher}
+            isDisabled={
+              title !== "" &&
+              year !== "" &&
+              condition !== "" &&
+              publisher !== ""
+                ? false
+                : true
+            }
+            onClick={saveComic}
+          >
+            Submit
+          </Button>
+        </Flex>
+      </Box>
     </Box>
   );
 }

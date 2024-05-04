@@ -13,16 +13,19 @@ export default function Coleccion() {
         marginTop={"20px"}
       >
         <CardPic
+          publisher="marvel"
           title="Marvel"
           imagen="src/assets/Marvel.jpg"
           texto="blablabla blablablabla"
         />
         <CardPic
+          publisher="dc"
           title="DC"
           imagen="src/assets/DC.jpg"
           texto="blablabla blablablabla2"
         />
         <CardPic
+          publisher="other"
           title="Otros"
           imagen="src\assets\Other.jpg"
           texto="blablabla blablablabla3"
