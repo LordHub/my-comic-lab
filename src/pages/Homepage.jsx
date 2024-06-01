@@ -8,7 +8,7 @@ export default function Homepage() {
     <>
       <About />
       <Coleccion />
-      <Venta />
+      {/* <Venta /> */}
       <YTVideos />
       <Contact />
     </>

@@ -9,7 +9,7 @@ import {
   Image,
   Link,
 } from "@chakra-ui/react";
-export default function CardPic({ title, imagen, texto, publisher }) {
+export default function CardPic({ title, imagen, texto = "", publisher }) {
   return (
     <Card align="center">
       <CardHeader>
@@ -19,9 +19,9 @@ export default function CardPic({ title, imagen, texto, publisher }) {
       </CardHeader>
       <CardBody align="center">
         <Image maxH={"350px"} src={imagen} />
-        <Text>{texto}</Text>
+        {texto && (<Text marginTop={"20px"}>{texto}</Text>)}
       </CardBody>
-      <CardFooter>
+      <CardFooter pt={0}>
         <Link href={"/coleccion?publisher=" + publisher}>
           <Button>Ver más</Button>
         </Link>
