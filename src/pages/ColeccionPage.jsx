@@ -1,16 +1,7 @@
 import CardColeccion from "../components/section/CardColeccion";
 import { useEffect, useState } from "react";
 import ComicsService from "../services/ComicsService";
-import {
-  Heading,
-  Box,
-  SimpleGrid,
-  Flex,
-  Text,
-  Badge,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
+import { Heading, Box, SimpleGrid, Flex, Text, Badge } from "@chakra-ui/react";
 export default function Coleccion({}) {
   const [comicList, setComicList] = useState([]);
   const [publisher, setPublisher] = useState("");
@@ -48,22 +39,32 @@ export default function Coleccion({}) {
   //const comicName = comicList.map((title) => <li>{title}</li>);
   return (
     <Box fontFamily={"outfit"} padding={"20px"}>
-      <Flex
-        justify={"center"}
-        background={backgroundImg()}
-        height={"260px"}
-        backgroundPosition={"50%"}
-        alignItems={"center"}
-      >
+      <Box position={"relative"}>
+        <Box height={"260px"} backgroundColor={"black"}>
+          <Flex
+            opacity={0.4}
+            justify={"center"}
+            background={backgroundImg()}
+            height={"260px"}
+            backgroundPosition={"50% 50%"}
+            alignItems={"center"}
+            backgroundSize={"cover"}
+          ></Flex>
+        </Box>
+
         <Heading
           textTransform={"uppercase"}
           size="3xl"
           color={"white"}
           fontFamily={"Luckiest Guy"}
+          position={"absolute"}
+          top={"50%"}
+          left={"50%"}
+          transform={"translate(-50%, -50%)"}
         >
           {publisher}
         </Heading>
-      </Flex>
+      </Box>
       <Flex
         padding={"10px"}
         justifyContent={"space-between"}
