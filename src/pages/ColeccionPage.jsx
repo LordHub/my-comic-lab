@@ -28,7 +28,7 @@ export default function Coleccion({}) {
         console.log(data);
         console.log(Object.values(data));
       } catch (error) {
-        console.error("Error fetching stock data:", error);
+        console.error(error);
       }
     };
 

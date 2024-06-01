@@ -1,5 +1,5 @@
 import CardPic from "./section/CardPic";
-import { SimpleGrid, Heading, Box } from "@chakra-ui/react";
+import { SimpleGrid, Heading, Box, Text } from "@chakra-ui/react";
 export default function Coleccion() {
   return (
     <Box padding={"20px"}>
@@ -16,19 +16,19 @@ export default function Coleccion() {
           publisher="marvel"
           title="Marvel"
           imagen="src/assets/Marvel.jpg"
-          texto="blablabla blablablabla"
+          texto="Muy mutante y mucho mutante con alguna que otra colección aleatoria"
         />
         <CardPic
           publisher="dc"
           title="DC"
           imagen="src/assets/DC.jpg"
-          texto="blablabla blablablabla2"
+          texto={<Text as={"i"}>I'm Batman!</Text>}
         />
         <CardPic
           publisher="other"
           title="Otros"
           imagen="src\assets\Other.jpg"
-          texto="blablabla blablablabla3"
+          texto="Mix de colecciones, desde comics de la Golden Age hasta indies actuales"
         />
       </SimpleGrid>
     </Box>
