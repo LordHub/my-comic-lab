@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Form from "./pages/Form";
 import Coleccion from "./pages/ColeccionPage";
+import Contact from "./components/Contact";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
     path: "/coleccion",
     element: <Coleccion />,
   },
+  {
+    path: "/contacto",
+    element: <Contact />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -45,6 +50,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/form" element={<Form />} />
           <Route path="/coleccion" element={<Coleccion />} />
+          <Route path="/contacto" element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>

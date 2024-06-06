@@ -1,4 +1,4 @@
-import { Card, Heading, Image, Badge, Flex, Box } from "@chakra-ui/react";
+import { Card, Heading, Image, Box } from "@chakra-ui/react";
 export default function CardColeccion({ title, imagen, year, condition }) {
   const circleBadge = () => {
     let backgroundColor = "";
@@ -31,8 +31,7 @@ export default function CardColeccion({ title, imagen, year, condition }) {
       <Heading className="text" fontFamily={"Outfit"} size="md">
         {title}
         <br />
-        {year} <br />
-        {condition + " condition"}
+        {year}
       </Heading>
     </Card>
   );

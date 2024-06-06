@@ -1,4 +1,15 @@
-import { Flex, Spacer, Box, Image, IconButton, Button } from "@chakra-ui/react";
+import {
+  Flex,
+  Spacer,
+  Box,
+  Image,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Text,
+} from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -29,10 +40,41 @@ export default function Navbar() {
         gap="4"
         cursor="pointer"
       >
-        <Box className="navbarlink">Sobre MyComicLab</Box>
-        <Box className="navbarlink">Venta</Box>
-        <Box className="navbarlink">Colección</Box>
-        <Box className="navbarlink">Contacto</Box>
+        <Link to={"/about"} className="navbarlink">
+          Sobre MyComicLab
+        </Link>
+        {/*<Box className="navbarlink">Venta</Box> */}
+        <Menu>
+          <MenuButton backgroundColor={"#362c64"} as={Text}>
+            Colección
+          </MenuButton>
+          <MenuList borderColor={"#362c64"} backgroundColor={"#362c64"}>
+            <MenuItem
+              as={Link}
+              to={"/coleccion?publisher=marvel"}
+              backgroundColor={"#362c64"}
+            >
+              Marvel
+            </MenuItem>
+            <MenuItem
+              as={Link}
+              to={"/coleccion?publisher=dc"}
+              backgroundColor={"#362c64"}
+            >
+              DC
+            </MenuItem>
+            <MenuItem
+              as={Link}
+              to={"/coleccion?publisher=other"}
+              backgroundColor={"#362c64"}
+            >
+              Otros
+            </MenuItem>
+          </MenuList>
+        </Menu>
+        <Link to={"/contacto"} className="navbarlink">
+          Contacto
+        </Link>
       </Flex>
 
       {/* Mobile button */}
