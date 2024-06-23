@@ -2,6 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
 
+console.log(process.env.REACT_APP_FIREBASE_PROJECT_ID);
+console.log(process.env.REACT_APP_FIREBASE_APP_ID);
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

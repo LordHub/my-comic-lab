@@ -36,6 +36,7 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
+          REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}
         run: |
           npm ci
           npm run build
