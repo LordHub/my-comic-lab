@@ -9,6 +9,7 @@ import {
   Text,
   Badge,
   Tooltip,
+  Link,
 } from "@chakra-ui/react";
 export default function Coleccion({}) {
   const [comicList, setComicList] = useState([]);

@@ -27,7 +27,7 @@ export default function Contact() {
         border={"2px"}
         borderRadius={"8px"}
         borderColor={"#362c64"}
-        width={800}
+        width={1000}
         backgroundColor={"#D0BEFF"}
       >
         <HStack padding={5}>

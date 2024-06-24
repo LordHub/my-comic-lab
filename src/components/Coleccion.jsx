@@ -15,19 +15,19 @@ export default function Coleccion() {
         <CardPic
           publisher="marvel"
           title="Marvel"
-          imagen="src/assets/Marvel.jpg"
+          imagen="Marvel.jpg"
           texto="Muy mutante y mucho mutante con alguna que otra colección aleatoria"
         />
         <CardPic
           publisher="dc"
           title="DC"
-          imagen="src/assets/DC.jpg"
+          imagen="DC.jpg"
           texto={<Text as={"i"}>I'm Batman!</Text>}
         />
         <CardPic
           publisher="other"
           title="Otros"
-          imagen="src\assets\Other.jpg"
+          imagen="Other.jpg"
           texto="Mix de colecciones, desde comics de la Golden Age hasta indies actuales"
         />
       </SimpleGrid>
