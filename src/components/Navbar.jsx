@@ -28,7 +28,7 @@ export default function Navbar() {
     >
       <Box boxSize="100px" p="2">
         <Link to={"/"}>
-          <Image src="src\assets\mycomiclablogo.png" alt="logo" />
+          <Image src="mycomiclablogo.png" alt="logo" />
         </Link>
       </Box>
       <Spacer />

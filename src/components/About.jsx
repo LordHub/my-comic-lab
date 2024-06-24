@@ -58,7 +58,7 @@ export default function About() {
       <Image
         maxWidth={[300, 500, 600]}
         w={"100%"}
-        src="src\assets\aboutpic.jpg"
+        src="aboutpic.jpg"
         alt="aboutmepic"
         padding={"20px"}
       />
