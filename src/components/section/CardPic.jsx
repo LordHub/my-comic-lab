@@ -7,8 +7,9 @@ import {
   Button,
   Text,
   Image,
-  Link,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+
 export default function CardPic({ title, imagen, texto = "", publisher }) {
   return (
     <Card align="center">
@@ -19,10 +20,10 @@ export default function CardPic({ title, imagen, texto = "", publisher }) {
       </CardHeader>
       <CardBody align="center">
         <Image maxH={"350px"} src={imagen} />
-        {texto && (<Text marginTop={"20px"}>{texto}</Text>)}
+        {texto && <Text marginTop={"20px"}>{texto}</Text>}
       </CardBody>
       <CardFooter pt={0}>
-        <Link href={"/coleccion?publisher=" + publisher}>
+        <Link to={"/coleccion?publisher=" + publisher}>
           <Button>Ver más</Button>
         </Link>
       </CardFooter>

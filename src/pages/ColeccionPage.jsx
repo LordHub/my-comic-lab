@@ -29,7 +29,6 @@ export default function Coleccion({}) {
         console.error(error);
       }
     };
-
     fetchData();
   }, []);
   const backgroundImg = () => {
@@ -187,6 +186,7 @@ export default function Coleccion({}) {
             imagen={comic.url}
             year={comic.year}
             condition={comic.condition}
+            key={comic.title}
           />
         ))}
       </SimpleGrid>
