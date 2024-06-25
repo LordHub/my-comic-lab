@@ -113,10 +113,29 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flexDir="column" align="center">
-          <Box className="navbarlink">Sobre MyComicLab</Box>
-          <Box className="navbarlink">Venta</Box>
-          <Box className="navbarlink">Colección</Box>
-          <Box className="navbarlink">Contacto</Box>
+          <Link to={"/about"} className="navbarlink">
+            Sobre MyComicLab
+          </Link>
+          <Menu>
+            <MenuButton className="navbarlink" as={Text}>
+              Colección
+            </MenuButton>
+            <MenuList borderColor={"#362c64"}>
+              <MenuItem as={Link} to={"/coleccion?publisher=marvel"}>
+                Marvel
+              </MenuItem>
+              <MenuItem as={Link} to={"/coleccion?publisher=dc"}>
+                DC
+              </MenuItem>
+              <MenuItem as={Link} to={"/coleccion?publisher=other"}>
+                Otros
+              </MenuItem>
+            </MenuList>
+          </Menu>
+
+          <Link to={"/contacto"} className="navbarlink">
+            Contacto
+          </Link>
         </Flex>
       </Flex>
     </Flex>

@@ -1,24 +1,18 @@
 import {
-  Button,
   Heading,
   Text,
   HStack,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
   Flex,
   Box,
   Image,
   VStack,
   Grid,
-  Link,
-  Center,
 } from "@chakra-ui/react";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoIosSend } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
+import ConctactCard from "./section/ContactCard";
 
 export default function Contact() {
   return (
@@ -44,69 +38,35 @@ export default function Contact() {
             src="https://qph.cf2.quoracdn.net/main-qimg-3b521cc666ce470f30712cb7cfd04fb1.webp"
           ></Image>
         </HStack>
-        <Box>
-          <Grid templateColumns="repeat(3, 1fr)" gap={6} padding={5}>
-            <Card>
-              <CardHeader>
-                <Flex justifyContent={"center"}>
-                  <MdOutlineEmail size={30} />
-                  <Text fontWeight={"bold"}>Email</Text>
-                </Flex>
-              </CardHeader>
-              <CardBody>
-                Si no eres fan de las redes sociales, ¡te espero en mi bandeja
-                de entrada!
-              </CardBody>
-              <CardFooter>
-                <Button className="navbarlink">mycomiclab@gmail.com</Button>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <Flex justifyContent={"center"}>
-                  <FaYoutube size={30} />
-                  <Text fontWeight={"bold"}>YouTube</Text>
-                </Flex>
-              </CardHeader>
-              <CardBody>
-                Si estás de paso por uno de mis vídeos, ¡coméntame!
-              </CardBody>
-              <CardFooter>
-                <Button>
-                  <Link
-                    className="navbarlink"
-                    href="https://www.youtube.com/@mycomiclab1"
-                    isExternal
-                  >
-                    @mycomiclab1
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
 
-            <Card>
-              <CardHeader>
-                <Flex justifyContent={"center"}>
-                  <FaInstagram size={30} />
-                  <Text fontWeight={"bold"}>Instagram</Text>
-                </Flex>
-              </CardHeader>
-
-              <CardBody>Si prefieres instagram, ¡mándame un mensaje!</CardBody>
-              <CardFooter>
-                <Button>
-                  <Link
-                    className="navbarlink"
-                    href="https://www.instagram.com/mycomiclab/"
-                    isExternal
-                  >
-                    Mycomiclab
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          </Grid>
-        </Box>
+        <Grid
+          gridTemplateColumns={["1fr", "1fr", "repeat(3, 1fr)"]}
+          gap={6}
+          padding={5}
+        >
+          <ConctactCard
+            title="Email"
+            text="Si no eres fan de las redes sociales, ¡te espero en mi bandeja de
+          entrada!"
+            logo={<MdOutlineEmail size={30} />}
+            btntext="Escríbeme"
+            cardlink="mailto:mycomiclab@gmail.com"
+          ></ConctactCard>
+          <ConctactCard
+            title="YouTube"
+            text="Si estás de paso por uno de mis vídeos, ¡coméntame!"
+            logo={<FaYoutube size={30} />}
+            btntext="Únete"
+            cardlink="https://www.youtube.com/@mycomiclab1"
+          ></ConctactCard>
+          <ConctactCard
+            title="Instagram"
+            text="Si prefieres instagram, ¡mándame un mensaje!"
+            logo={<FaInstagram size={30} />}
+            btntext="Sígueme"
+            cardlink="https://www.instagram.com/mycomiclab/"
+          ></ConctactCard>
+        </Grid>
       </VStack>
     </Flex>
   );
