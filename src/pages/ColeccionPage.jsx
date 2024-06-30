@@ -9,11 +9,14 @@ import {
   Text,
   Badge,
   Tooltip,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 export default function Coleccion({}) {
   const [comicList, setComicList] = useState([]);
   const [publisher, setPublisher] = useState("");
   const [filteredList, setFilteredList] = useState([]);
+  const [ageFilter, setAgeFilter] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +45,7 @@ export default function Coleccion({}) {
     }
   };
   const filterAge = (age) => {
+    setAgeFilter(age);
     switch (age) {
       case "golden":
         var result = comicList.filter((obj) => {
@@ -69,7 +73,10 @@ export default function Coleccion({}) {
         return;
     }
   };
-
+  const cleanFilters = () => {
+    setFilteredList(comicList);
+    setAgeFilter("");
+  };
   //const comicName = comicList.map((title) => <li>{title}</li>);
   return (
     <Box fontFamily={"outfit"} padding={"20px"}>
@@ -104,8 +111,8 @@ export default function Coleccion({}) {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Flex>
-          <Tooltip label="previo a 1956">
+        <Flex alignItems={"center"}>
+          <Tooltip label="Previo a 1956">
             <Badge
               onClick={() => filterAge("golden")}
               cursor={"pointer"}
@@ -113,6 +120,8 @@ export default function Coleccion({}) {
               padding={"5px"}
               borderRadius={"10px"}
               backgroundColor={"#FFD700"}
+              border={ageFilter == "golden" ? "2px" : "0px"}
+              borderColor={ageFilter == "golden" ? "#black" : ""}
             >
               Golden Age
             </Badge>
@@ -125,6 +134,8 @@ export default function Coleccion({}) {
               padding={"5px"}
               borderRadius={"10px"}
               backgroundColor={"#C0C0C0"}
+              border={ageFilter == "silver" ? "2px" : "0px"}
+              borderColor={ageFilter == "silver" ? "#black" : ""}
             >
               Silver Age
             </Badge>
@@ -137,6 +148,8 @@ export default function Coleccion({}) {
               padding={"5px"}
               borderRadius={"10px"}
               backgroundColor={"#CD7F32"}
+              border={ageFilter == "bronze" ? "2px" : "0px"}
+              borderColor={ageFilter == "bronze" ? "#black" : ""}
             >
               Bronze Age
             </Badge>
@@ -149,12 +162,14 @@ export default function Coleccion({}) {
               padding={"5px"}
               borderRadius={"10px"}
               backgroundColor={"#3BD53B"}
+              border={ageFilter == "modern" ? "2px" : "0px"}
+              borderColor={ageFilter == "modern" ? "#black" : ""}
             >
               Modern Age
             </Badge>
           </Tooltip>
           <Badge
-            onClick={() => setFilteredList(comicList)}
+            onClick={() => cleanFilters()}
             cursor={"pointer"}
             margin={"5px"}
             padding={"5px"}
@@ -168,7 +183,14 @@ export default function Coleccion({}) {
           Total comics {filteredList.length}
         </Text>
       </Flex>
-
+      {filteredList.length == 0 ? (
+        <Alert status="info">
+          <AlertIcon />
+          Upss!!! No hay cómics de esta época
+        </Alert>
+      ) : (
+        <></>
+      )}
       <SimpleGrid
         fontFamily={"Outfit"}
         spacing={6}
