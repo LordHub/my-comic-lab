@@ -12,19 +12,17 @@ import {
   Alert,
   AlertIcon,
 } from "@chakra-ui/react";
+import { useSearchParams } from 'react-router-dom';
 export default function Coleccion({}) {
   const [comicList, setComicList] = useState([]);
-  const [publisher, setPublisher] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const publisher = searchParams.get("publisher");
   const [filteredList, setFilteredList] = useState([]);
   const [ageFilter, setAgeFilter] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const queryParams = new URLSearchParams(window.location.search);
-        const publisher = queryParams.get("publisher");
-        setPublisher(publisher);
-
         const data = await ComicsService.getAllComics(publisher);
         setComicList(Object.values(data));
         setFilteredList(Object.values(data));
