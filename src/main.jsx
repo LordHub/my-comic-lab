@@ -8,7 +8,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Box, Flex } from "@chakra-ui/react";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -43,15 +43,23 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/coleccion" element={<Coleccion />} />
-          <Route path="/contacto" element={<Contact />} />
-        </Routes>
-        <Footer />
+        <Flex direction="column" minH="100vh">
+          <Box as="header">
+            <Navbar />
+          </Box>
+          <Box as="main" flex="1">
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/about" element={<AboutUsPage />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/coleccion" element={<Coleccion />} />
+              <Route path="/contacto" element={<Contact />} />
+            </Routes>
+          </Box>
+          <Box as="footer">
+            <Footer />
+          </Box>
+        </Flex>
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>

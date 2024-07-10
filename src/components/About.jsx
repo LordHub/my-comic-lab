@@ -56,6 +56,7 @@ export default function About() {
         </Flex>
       </GridItem>
       <Image
+        fallbackSrc="fallback.jpg"
         maxWidth={[300, 500, 600]}
         w={"100%"}
         src="aboutpic.jpg"

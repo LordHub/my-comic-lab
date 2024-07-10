@@ -19,7 +19,7 @@ export default function CardPic({ title, imagen, texto = "", publisher }) {
         </Heading>
       </CardHeader>
       <CardBody align="center">
-        <Image maxH={"350px"} src={imagen} />
+        <Image maxH={"350px"} src={imagen} fallbackSrc="fallback.jpg" />
         {texto && <Text marginTop={"20px"}>{texto}</Text>}
       </CardBody>
       <CardFooter pt={0}>
