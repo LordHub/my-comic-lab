@@ -9,8 +9,13 @@ import {
   MenuList,
   MenuItem,
   Text,
+  AccordionPanel,
+  AccordionItem,
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -45,8 +50,13 @@ export default function Navbar() {
         </Link>
         {/*<Box className="navbarlink">Venta</Box> */}
         <Menu>
-          <MenuButton backgroundColor={"#362c64"} as={Text}>
+          <MenuButton
+            className="navbarlink"
+            backgroundColor={"#362c64"}
+            as={Text}
+          >
             Colección
+            <ChevronDownIcon />
           </MenuButton>
           <MenuList borderColor={"#362c64"} backgroundColor={"#362c64"}>
             <MenuItem
@@ -102,6 +112,7 @@ export default function Navbar() {
         overflowY="auto"
         flexDir="column"
       >
+        {/*Button with cross to close the menu*/}
         <Flex justify="flex-end">
           <IconButton
             mt={2}
@@ -112,6 +123,8 @@ export default function Navbar() {
             onClick={() => setDisplay("none")}
           />
         </Flex>
+        {/*menu to be changed*/}
+        {/*
         <Flex flexDir="column" align="center">
           <Link to={"/about"} className="navbarlink">
             Sobre MyComicLab
@@ -134,6 +147,60 @@ export default function Navbar() {
           </Menu>
 
           <Link to={"/contacto"} className="navbarlink">
+            Contacto
+          </Link>
+        </Flex>
+        */}
+        <Flex flexDir="column" align="center">
+          <Link
+            onClick={() => setDisplay("none")}
+            to={"/about"}
+            className="mobileNavbarLink"
+          >
+            Sobre MyComicLab
+          </Link>
+          <Accordion defaultIndex={[0]} allowMultiple>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                    Coleccion
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel
+                onClick={() => setDisplay("none")}
+                as={Link}
+                to={"/coleccion?publisher=marvel"}
+                className="mobileNavbarLink"
+              >
+                Marvel
+              </AccordionPanel>
+              <AccordionPanel
+                onClick={() => setDisplay("none")}
+                as={Link}
+                to={"/coleccion?publisher=dc"}
+                className="mobileNavbarLink"
+              >
+                DC
+              </AccordionPanel>
+
+              <AccordionPanel
+                onClick={() => setDisplay("none")}
+                as={Link}
+                to={"/coleccion?publisher=other"}
+                className="mobileNavbarLink"
+              >
+                Other
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
+          <Link
+            onClick={() => setDisplay("none")}
+            to={"/contacto"}
+            className="mobileNavbarLink"
+          >
             Contacto
           </Link>
         </Flex>

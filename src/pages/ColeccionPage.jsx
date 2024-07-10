@@ -11,8 +11,9 @@ import {
   Tooltip,
   Alert,
   AlertIcon,
+  Grid,
 } from "@chakra-ui/react";
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from "react-router-dom";
 export default function Coleccion({}) {
   const [comicList, setComicList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -31,7 +32,7 @@ export default function Coleccion({}) {
       }
     };
     fetchData();
-  }, []);
+  }, [publisher]);
   const backgroundImg = () => {
     switch (publisher) {
       case "marvel":
@@ -75,7 +76,6 @@ export default function Coleccion({}) {
     setFilteredList(comicList);
     setAgeFilter("");
   };
-  //const comicName = comicList.map((title) => <li>{title}</li>);
   return (
     <Box fontFamily={"outfit"} padding={"20px"}>
       <Box position={"relative"}>
@@ -104,83 +104,104 @@ export default function Coleccion({}) {
           {publisher}
         </Heading>
       </Box>
-      <Flex
+      <Grid
+        templateColumns={["repeat(4, 2fr)", "repeat(4, 2fr)", "repeat(8, 1fr)"]}
         padding={"10px"}
-        justifyContent={"space-between"}
         alignItems={"center"}
+        gap={1}
       >
-        <Flex alignItems={"center"}>
-          <Tooltip label="Previo a 1956">
-            <Badge
-              onClick={() => filterAge("golden")}
-              cursor={"pointer"}
-              margin={"5px"}
-              padding={"5px"}
-              borderRadius={"10px"}
-              backgroundColor={"#FFD700"}
-              border={ageFilter == "golden" ? "2px" : "0px"}
-              borderColor={ageFilter == "golden" ? "#black" : ""}
-            >
-              Golden Age
-            </Badge>
-          </Tooltip>
-          <Tooltip label="1956-1970">
-            <Badge
-              onClick={() => filterAge("silver")}
-              cursor={"pointer"}
-              margin={"5px"}
-              padding={"5px"}
-              borderRadius={"10px"}
-              backgroundColor={"#C0C0C0"}
-              border={ageFilter == "silver" ? "2px" : "0px"}
-              borderColor={ageFilter == "silver" ? "#black" : ""}
-            >
-              Silver Age
-            </Badge>
-          </Tooltip>
-          <Tooltip label="1970-1985">
-            <Badge
-              onClick={() => filterAge("bronze")}
-              cursor={"pointer"}
-              margin={"5px"}
-              padding={"5px"}
-              borderRadius={"10px"}
-              backgroundColor={"#CD7F32"}
-              border={ageFilter == "bronze" ? "2px" : "0px"}
-              borderColor={ageFilter == "bronze" ? "#black" : ""}
-            >
-              Bronze Age
-            </Badge>
-          </Tooltip>
-          <Tooltip label="1985 en adelante">
-            <Badge
-              onClick={() => filterAge("modern")}
-              cursor={"pointer"}
-              margin={"5px"}
-              padding={"5px"}
-              borderRadius={"10px"}
-              backgroundColor={"#3BD53B"}
-              border={ageFilter == "modern" ? "2px" : "0px"}
-              borderColor={ageFilter == "modern" ? "#black" : ""}
-            >
-              Modern Age
-            </Badge>
-          </Tooltip>
+        <Tooltip label="Previo a 1956">
           <Badge
-            onClick={() => cleanFilters()}
+            textAlign={"center"}
+            onClick={() => filterAge("golden")}
             cursor={"pointer"}
             margin={"5px"}
             padding={"5px"}
             borderRadius={"10px"}
+            backgroundColor={"#FFD700"}
+            border={ageFilter == "golden" ? "2px" : "0px"}
+            borderColor={ageFilter == "golden" ? "#black" : ""}
           >
-            Clear filters
+            Golden Age
           </Badge>
-        </Flex>
+        </Tooltip>
+        <Tooltip label="1956-1970">
+          <Badge
+            textAlign={"center"}
+            onClick={() => filterAge("silver")}
+            cursor={"pointer"}
+            margin={"5px"}
+            padding={"5px"}
+            borderRadius={"10px"}
+            backgroundColor={"#C0C0C0"}
+            border={ageFilter == "silver" ? "2px" : "0px"}
+            borderColor={ageFilter == "silver" ? "#black" : ""}
+          >
+            Silver Age
+          </Badge>
+        </Tooltip>
+        <Tooltip label="1970-1985">
+          <Badge
+            textAlign={"center"}
+            onClick={() => filterAge("bronze")}
+            cursor={"pointer"}
+            margin={"5px"}
+            padding={"5px"}
+            borderRadius={"10px"}
+            backgroundColor={"#CD7F32"}
+            border={ageFilter == "bronze" ? "2px" : "0px"}
+            borderColor={ageFilter == "bronze" ? "#black" : ""}
+          >
+            Bronze Age
+          </Badge>
+        </Tooltip>
+        <Tooltip label="1985 en adelante">
+          <Badge
+            textAlign={"center"}
+            onClick={() => filterAge("modern")}
+            cursor={"pointer"}
+            margin={"5px"}
+            padding={"5px"}
+            borderRadius={"10px"}
+            backgroundColor={"#3BD53B"}
+            border={ageFilter == "modern" ? "2px" : "0px"}
+            borderColor={ageFilter == "modern" ? "#black" : ""}
+          >
+            Modern Age
+          </Badge>
+        </Tooltip>
+        <Badge
+          textAlign={"center"}
+          onClick={() => cleanFilters()}
+          cursor={"pointer"}
+          margin={"5px"}
+          padding={"5px"}
+          borderRadius={"10px"}
+        >
+          Clear filters
+        </Badge>
+        <Badge
+          textAlign={"center"}
+          cursor={"pointer"}
+          margin={"5px"}
+          padding={"5px"}
+          borderRadius={"10px"}
+        >
+          Sort
+        </Badge>
+        <Badge />
 
-        <Text fontSize="lg" fontWeight={"bold"}>
-          Total comics {filteredList.length}
+        <Text
+          textAlign={"right"}
+          margin={"5px"}
+          padding={"5px"}
+          fontSize="md"
+          fontWeight={"bold"}
+        >
+          Total {filteredList.length}
         </Text>
-      </Flex>
+      </Grid>
+
       {filteredList.length == 0 ? (
         <Alert status="info">
           <AlertIcon />

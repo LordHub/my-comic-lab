@@ -37,8 +37,12 @@
   }
   .navbarlink:hover{
     text-decoration: none !important;
-    transform: scale(1.2);
+    transform: scale(1.06);
+  }
+  .mobileNavbarLink:hover{
+    background-color: #EDF2F7;
   }
   #vermasbtn:hover{
 background-color: rgb(206, 7, 7);
   }
+  
