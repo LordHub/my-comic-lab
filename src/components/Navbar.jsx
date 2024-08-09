@@ -14,10 +14,10 @@ import {
   Accordion,
   AccordionButton,
   AccordionIcon,
+  Link,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [display, setDisplay] = useState("none");
@@ -45,6 +45,33 @@ export default function Navbar() {
         gap="4"
         cursor="pointer"
       >
+        <Link
+          href="https://www.wallapop.com/app/user/andresp-08z8px8d4863/published"
+          isExternal
+        >
+          <Image
+            width={"25px"}
+            borderRadius={"10px"}
+            src="https://i0.wp.com/about.wallapop.com/wp-content/uploads/2021/07/brand-motion.png?fit=690%2C690&ssl=1"
+          />
+        </Link>
+        <Link href="https://www.vinted.nl/member/200542763" isExternal>
+          <Image
+            width={"25px"}
+            borderRadius={"10px"}
+            src="https://i.pinimg.com/originals/3a/0c/46/3a0c461f51acc10090409241e6f34051.jpg"
+          />
+        </Link>
+        <Link
+          href="https://www.todocoleccion.net/usuario/huescacity"
+          isExternal
+        >
+          <Image
+            width={"25px"}
+            borderRadius={"10px"}
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3SDygNOv5mtZgRc8Xu-WD6-TZ24h8GUmsAA&s"
+          />
+        </Link>
         <Link to={"/about"} className="navbarlink">
           Sobre MyComicLab
         </Link>
